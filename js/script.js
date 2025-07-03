@@ -1,5 +1,6 @@
 // Global Object
-import api_key from "./config.js"
+// import api_key from "./config.js"
+const api_key = "7d543d12dc79b07ebb2b405afc72fc92"
 
 const global = {
   currentPage: window.location.pathname,
@@ -36,9 +37,7 @@ async function fetchAPIData(endpoint) {
   const API_KEY = global.api_key
 
   showSpinner()
-  const response = await fetch(
-    `${API_URL}${endpoint}?api_key=${API_KEY}&language=en-US}`
-  )
+  const response = await fetch(`${API_URL}${endpoint}?api_key=${API_KEY}&language=en-US}`)
   const data = await response.json()
   hideSpinner()
   return data
@@ -135,7 +134,7 @@ async function displayMovieDetails() {
     </p>
     <p class="text-muted">Release Date: ${movie.release_date}</p>
     <p>${movie.overview}</p>
-    <h5>Genres</h5>
+    <h4>Genres</h4>
     <ul class="list-group">
       ${movie.genres
         .map((genre) => {
@@ -143,9 +142,7 @@ async function displayMovieDetails() {
         })
         .join("")}
     </ul>
-    <a href="${
-      movie.homepage
-    }" target="_blank" class="btn">Visit Movie Homepage</a>
+    <a href="${movie.homepage}" target="_blank" class="btn">Visit Movie Homepage</a>
     </div>
   `
   const detailsBottom = document.createElement("div")
@@ -156,9 +153,7 @@ async function displayMovieDetails() {
     <ul>
       <li><span class="text-secondary">Budget:</span> $${movie.budget.toLocaleString()}</li>
       <li><span class="text-secondary">Revenue:</span> $${movie.revenue.toLocaleString()}</li>
-      <li><span class="text-secondary">Runtime:</span> ${
-        movie.runtime
-      } minutes</li>
+      <li><span class="text-secondary">Runtime:</span> ${movie.runtime} minutes</li>
       <li><span class="text-secondary">Status:</span> ${movie.status}</li>
     </ul>
     <h4>Production Companies</h4>
@@ -184,9 +179,9 @@ async function displayMovieDetails() {
           : `<img src="./images/no-image.jpg" alt="${member.name}" class="cast-img" />`
       }
       <div class="cast-name">
-      <p><strong><a href="https://www.themoviedb.org/person/${
-        member.id
-      }" target="_blank">${member.name}</a></strong></p>
+      <p><strong><a href="https://www.themoviedb.org/person/${member.id}" target="_blank">${
+        member.name
+      }</a></strong></p>
         <p>${member.character}</p>
       </div>
      </div>
@@ -234,9 +229,7 @@ async function displayShowDetails() {
         })
         .join("")}
     </ul>
-    <a href="${
-      show.homepage
-    }" target="_blank" class="btn">Visit Show Homepage</a>
+    <a href="${show.homepage}" target="_blank" class="btn">Visit Show Homepage</a>
   </div>
   `
   const detailsBottom = document.createElement("div")
@@ -244,16 +237,10 @@ async function displayShowDetails() {
   detailsBottom.innerHTML = `
     <h2>Show Info</h2>
     <ul>
-    <li><span class="text-secondary">Number Of Seasons:</span> ${
-      show.number_of_seasons
-    }</li>
-      <li><span class="text-secondary">Number Of Episodes:</span> ${
-        show.number_of_episodes
-      }</li>
+    <li><span class="text-secondary">Number Of Seasons:</span> ${show.number_of_seasons}</li>
+      <li><span class="text-secondary">Number Of Episodes:</span> ${show.number_of_episodes}</li>
       <li>
-        <span class="text-secondary">Last Episode To Air:</span> ${
-          show.last_air_date
-        }
+        <span class="text-secondary">Last Episode To Air:</span> ${show.last_air_date}
       </li>
       <li><span class="text-secondary">Status:</span> ${show.status}</li>
     </ul>
@@ -281,9 +268,9 @@ async function displayShowDetails() {
           : `<img src="./images/no-image.jpg" alt="${member.name}" class="cast-img" />`
       }
       <div class="cast-name">
-      <p><strong><a href="https://www.themoviedb.org/person/${
-        member.id
-      }" target="_blank">${member.name}</a></strong></p>
+      <p><strong><a href="https://www.themoviedb.org/person/${member.id}" target="_blank">${
+        member.name
+      }</a></strong></p>
         <p>${member.character}</p>
       </div>
      </div>
@@ -313,9 +300,7 @@ async function displayMovieSlider() {
         }
       </a>
       <h4 class="swiper-rating">
-        <i class="fas fa-star text-secondary"></i> ${movie.vote_average.toFixed(
-          1
-        )} / 10
+        <i class="fas fa-star text-secondary"></i> ${movie.vote_average.toFixed(1)} / 10
       </h4>
 
     `
@@ -339,9 +324,7 @@ async function displayShowSlider() {
         }
       </a>
       <h4 class="swiper-rating">
-        <i class="fas fa-star text-secondary"></i> ${show.vote_average.toFixed(
-          1
-        )} / 10
+        <i class="fas fa-star text-secondary"></i> ${show.vote_average.toFixed(1)} / 10
       </h4>
 
     `
@@ -357,11 +340,9 @@ async function displayTrending() {
     const div = document.createElement("div")
     div.classList.add("swiper-slide")
     div.innerHTML = `
-      <a href="${
-        trending.media_type === "movie"
-          ? "movie-details.html"
-          : "tv-details.html"
-      }?id=${trending.id}">
+      <a href="${trending.media_type === "movie" ? "movie-details.html" : "tv-details.html"}?id=${
+      trending.id
+    }">
         ${
           trending.poster_path
             ? `<img src="https://image.tmdb.org/t/p/w500${trending.poster_path}" alt="${trending.title}" />`
@@ -369,9 +350,7 @@ async function displayTrending() {
         }
       </a>
       <h4 class="swiper-rating">
-        <i class="fas fa-star text-secondary"></i> ${trending.vote_average.toFixed(
-          1
-        )} / 10
+        <i class="fas fa-star text-secondary"></i> ${trending.vote_average.toFixed(1)} / 10
       </h4>
 
     `
@@ -395,9 +374,7 @@ async function displayUpcomingMovies() {
         }
       </a>
       <h4 class="swiper-rating">
-        <i class="fas fa-star text-secondary"></i> ${movie.vote_average.toFixed(
-          1
-        )} / 10
+        <i class="fas fa-star text-secondary"></i> ${movie.vote_average.toFixed(1)} / 10
       </h4>
     `
     upcomingMoviesSwiper.appendChild(div)
@@ -420,9 +397,7 @@ async function displayUpcomingShows() {
         }
       </a>
       <h4 class="swiper-rating">
-        <i class="fas fa-star text-secondary"></i> ${show.vote_average.toFixed(
-          1
-        )} / 10
+        <i class="fas fa-star text-secondary"></i> ${show.vote_average.toFixed(1)} / 10
       </h4>
     `
 
@@ -447,8 +422,7 @@ async function search() {
 
     if (results.length === 0) {
       showAlert("No results found", "error")
-      document.getElementById("search-results-wrapper").style.minHeight =
-        "100vh"
+      document.getElementById("search-results-wrapper").style.minHeight = "100vh"
     } else {
       displaySearchResults(results)
     }
@@ -464,11 +438,9 @@ async function displaySearchResults(results) {
     const div = document.createElement("div")
     div.classList.add("card")
     div.innerHTML = `
-      <a href="${
-        global.search.type === "movie"
-          ? "movie-details.html"
-          : "tv-details.html"
-      }?id=${result.id}">
+      <a href="${global.search.type === "movie" ? "movie-details.html" : "tv-details.html"}?id=${
+      result.id
+    }">
       ${
         result.poster_path
           ? `<img src="https://image.tmdb.org/t/p/w500${result.poster_path}" alt="${result.title}" class="card-img-top" />`
@@ -478,9 +450,7 @@ async function displaySearchResults(results) {
       <div class="card-body">
       <h5 class="card-title">${result.title || result.name}</h5>
       <p class="card-text">
-        <small class="text-muted">Release: ${
-          result.release_date || result.first_air_date
-        }</small>
+        <small class="text-muted">Release: ${result.release_date || result.first_air_date}</small>
       </p>
       </div>
     `
@@ -558,25 +528,25 @@ function displayBackdrop(type, backdropPath) {
 // Function to init swiper
 function initSwiper() {
   const swiper = new Swiper(".swiper", {
-    slidesPerView: 2,
+    slidesPerView: 1,
     spaceBetween: 10,
     loop: true,
     autoplay: {
       delay: 4000,
-      disableOnInteraction: false,
+      disableOnInteraction: true,
     },
     breakpoints: {
-      640: {
+      425: {
         slidesPerView: 2,
         spaceBetween: 20,
       },
       768: {
         slidesPerView: 3,
-        spaceBetween: 40,
+        spaceBetween: 30,
       },
       1024: {
         slidesPerView: 4,
-        spaceBetween: 50,
+        spaceBetween: 40,
       },
     },
   })
