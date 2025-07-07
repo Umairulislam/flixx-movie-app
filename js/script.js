@@ -1,10 +1,10 @@
 // Global Object
-import { api_key, api_url } from "./config.js"
+import { TMBD_API_KEY, TMBD_API_URL } from "./config.js"
 
 const global = {
   currentPage: window.location.pathname,
-  api_key: api_key,
-  api_url: api_url,
+  api_key: TMBD_API_KEY,
+  api_url: TMBD_API_URL,
   search: {
     term: "",
     type: "",
