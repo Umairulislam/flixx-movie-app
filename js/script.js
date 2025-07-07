@@ -65,16 +65,23 @@ async function displayPopularMovies() {
     div.classList.add("card")
     div.innerHTML = `
       <a href="movie-details.html?id=${movie.id}">
+      <div class="card-image">
       ${
         movie.poster_path
           ? `<img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" class="card-img-top" />`
           : `<img src="./images/no-image.jpg" alt="${movie.title}" class="card-img-top" />`
       }
+      <div class="card-overlay">
+        <p><i class="fas fa-star text-primary"></i></p>
+        <p>${movie.vote_average.toFixed(1)} / 10</p>
+        <button class="btn">View Details</button>
+      </div>
+      </div>
       </a>
       <div class="card-body">
       <h5 class="card-title">${movie.title}</h5>
       <p class="card-text">
-        <small class="text-muted">Release: ${movie.release_date}</small>
+        <small class="text-muted">${new Date(movie.release_date).getFullYear()}</small>
       </p>
       </div>
     `
@@ -91,11 +98,18 @@ async function displayPopularShows() {
     div.classList.add("card")
     div.innerHTML = `
       <a href="tv-details.html?id=${show.id}">
+      <div class="card-image">
       ${
         show.poster_path
           ? `<img src="https://image.tmdb.org/t/p/w500${show.poster_path}" alt="${show.name}" class="card-img-top" />`
           : `<img src="./images/no-image.jpg" alt="${show.name}" class="card-img-top" />`
       }
+      <div class="card-overlay">
+        <p><i class="fas fa-star text-primary"></i></p>
+        <p>${show.vote_average.toFixed(1)} / 10</p>
+        <button class="btn">View Details</button>
+      </div>
+      </div>
       </a>
       <div class="card-body">
       <h5 class="card-title">${show.name}</h5>

@@ -40,6 +40,10 @@ ul {
   color: var(--color-secondary);
 }
 
+.text-muted {
+  color: #6c757d;
+}
+
 .active {
   color: var(--color-secondary);
   font-weight: 700;
@@ -58,6 +62,8 @@ ul {
   cursor: pointer;
   background: transparent;
   transition: all 0.3s ease-in-out;
+  font-weight: 600;
+  border-radius: 0px;
 }
 
 .btn:hover {
@@ -284,7 +290,6 @@ section h2 {
   margin-top: 10px;
 }
 
-/* Alert */
 .alert {
   padding: 10px 20px;
   margin-bottom: 20px;
@@ -326,9 +331,47 @@ section h2 {
 }
 
 .card {
-  background: #04376b;
-  padding: 10px;
   transition: 0.3s ease;
+}
+
+.card-image {
+  position: relative;
+  overflow: hidden;
+  border: 4px solid white;
+}
+
+.card-image:hover {
+  border: 4px solid var(--color-secondary);
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.card-overlay:hover {
+  opacity: 1;
+}
+
+.card-overlay button {
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .card img {
@@ -340,10 +383,10 @@ section h2 {
   font-size: 20px;
 }
 
-.card:hover {
+/* .card:hover {
   transform: scale(1.02);
   background: #0a4b8f;
-}
+} */
 
 /* Movie Details Section */
 .details-top {
