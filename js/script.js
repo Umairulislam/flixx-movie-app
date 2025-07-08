@@ -81,7 +81,7 @@ async function displayPopularMovies() {
       <div class="card-body">
       <h5 class="card-title">${movie.title}</h5>
       <p class="card-text">
-        <small class="text-muted">${new Date(movie.release_date).getFullYear()}</small>
+        <small class="text-muted">Release: ${new Date(movie.release_date).getFullYear()}</small>
       </p>
       </div>
     `
@@ -114,7 +114,7 @@ async function displayPopularShows() {
       <div class="card-body">
       <h5 class="card-title">${show.name}</h5>
       <p class="card-text">
-        <small class="text-muted">Aired: ${show.first_air_date}</small>
+        <small class="text-muted">Aired: ${new Date(show.first_air_date).getFullYear()}</small>
       </p>
       </div>
     `
