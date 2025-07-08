@@ -155,9 +155,26 @@ ul {
 }
 
 /* Now Playing Section | Trending Section | Top Rated Section | Upcoming Section */
+
+.backdrop {
+  position: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.2;
+}
+
 .now-playing {
   padding: 60px 0px;
-  background: url("../images/showcase-bg.jpg") no-repeat center center/cover;
+  background: url("../images/showcase-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 section h2 {
@@ -168,7 +185,7 @@ section h2 {
 
 .swiper {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .swiper-slide {
@@ -186,6 +203,7 @@ section h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  aspect-ratio: 2 / 3;
 }
 
 .swiper-rating {
@@ -338,6 +356,7 @@ section h2 {
   position: relative;
   overflow: hidden;
   border: 4px solid white;
+  aspect-ratio: 2 / 3;
 }
 
 .card-image:hover {
@@ -382,11 +401,6 @@ section h2 {
   margin-top: 10px;
   font-size: 20px;
 }
-
-/* .card:hover {
-  transform: scale(1.02);
-  background: #0a4b8f;
-} */
 
 /* Movie Details Section */
 .details-top {
@@ -550,18 +564,4 @@ section h2 {
   50% {
     transform: translateY(-10px);
   }
-}
-
-/* Backdrop image */
-.backdrop {
-  position: fixed;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  opacity: 0.2;
 }
